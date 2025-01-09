@@ -12,3 +12,4 @@ Refactoring excercise based on [Emily Blanche](https://github.com/emilybache)'s 
 
 
 ## Refactoring commits logbook
+Cronological order of refactoring commits (each one also modifying the README.md): 
