@@ -1,5 +1,5 @@
 import pytest
-from ..src.yatzy2 import Yatzy, YatzyCategory
+from src.yatzy2 import Yatzy, YatzyCategory
 
 
 @pytest.fixture
