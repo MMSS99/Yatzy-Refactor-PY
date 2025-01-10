@@ -77,11 +77,23 @@ Cronological order of refactoring commits:
 - Commit [*af17f09*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/af17f09fa038f3b464801aab9f09bb6d8abac812) + [*af17f09*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/af17f09fa038f3b464801aab9f09bb6d8abac812) + [*c512a1b*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/c512a1b825f65150531d6bdad215999bb9e96772):
     - Both in `yatzy1` and it's tests, some of the functions had camel case names while the rest were snake_case. Those functions (namely `smallStraight`, `largeStraight` and `fullHouse`) have been renamed in snake_case. Some testing names contained numbers, that were changed by their lettered representation.
 
-- Commit [*a01a9de*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/a01a9deb39f8ff63c3b312f917e5e10d3df4872a):
+- Commit [*a01a9de*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/a01a9deb39f8ff63c3b312f917e5e10d3df4872a) + [*550537a*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/550537a0907a227eb7d1c58234a116ef28995788):
     - In some of the testing functions (`test_chance_scores_sum_of_all_dice` and `test_yatzy_scores_50`) there were assertions that used previously declared variables. Now, they use only the raw data, as I found the variable declaration obscured the assertion. 
 
 - Commit [*297b9b3*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/297b9b36ddd1998ae024c2f5aba49070b24f857d):
     - In all testing funcions, the assertions were written following `assert VALUE == FUNCTION`. I have changed it to `assert FUNCTION == VALUE` as it cleans up the document, improving overall legibility and structure. 
+
+- Commit [*7dee84b*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/7dee84b1a9ded0ae597ca5fd274d339a9f9f9c3e):
+    - We add pytest markers to each test to be able to pinpoint them in testing.
+
+- Commit [*36a41cc*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/36a41cc13ad199eafc7dd92a23d948aa2a846801) + [*40ca9ee*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/40ca9ee7c7f289070c0927cccb5b959a5738acb7) + [*b35010c*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/b35010c739dc1b9620b9bb38ab30c52c3c5a1215):
+    - Some values were in their literal form. By defining a set of constants, specially `ZERO`, we eliminate them from the functions.
+
+- Commit [*8471359*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/84713596c79b465e0a3380c7d47a3909d3e0900b):
+    - The definition of `self.dice` was too literal. By recieving the given arguments in *args format, we can simply change the tuple recieved to a list when defining `self.dice`. This also allow for future number-of-die expansions.
+
+- Commit [*cb2a6b8*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/cb2a6b89645b24258cb860514a875d6c9c81d828):
+    - `Yatzy.full_house` had inside of it's return if clausule an expression that checked it's variables for their value being 0. This can easily be changed, as a variable with value 0 is read as `None` by if clausules.
 
 ## Time spent 
 <sup> In 15-minute tokens</sup>
