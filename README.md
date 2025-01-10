@@ -60,6 +60,14 @@ Cronological order of refactoring commits:
  - Commit [*3aa4084*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/3aa40840b795d8893d7939be35b183d11be1e222):
     - Yet again, `smallStraight` and `largeStraight` now depend of the class instance, therefore the test values must be input directly into the class.
 
+- Commit [*2cd8521*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/2cd8521c77218769aac86aa59f7fd5573d8f72ca) + [*e1159b3*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/e1159b3c408e5cedeb534733d66b418c353dcd75):
+    - Changed `fullHouse` arguments, as it now depends on the class therefore only takes `self`.
+    - The changes to the code are rather massive. Now the main function is controled in a single for loop that takes the sorted set of the values of `set_dice` and iterates through it. Each value is sent to an if/elif statement to check if: 
+        1. There's three of it's kind. It will save the value * 3 in a variable, and given that there can only be 1 set of three of a kind in each dice roll, it'll never enter this statement. It has to come first so the next elif skips this value.
+        2. There's two of it's count. The set of pairs will be stored; if by any chance there's another set of pairs (that is not a 3-of-a-kind) it will be stored too, but in that case fullHouse will return a 0 either way as the 3-of-a-kind rule would not be satisfied.
+    - When both statements are satisfied, the loop will be broken by a return that sums the values of the 3-of-a-kind and the pair. If the loop finishes without both values being found, it will return 0. 
 
+- Commit [*0fd1fe8*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/0fd1fe8a07767b76743eb98440b6d64cec822887):
+    - Last changes to the test contents: `fullHouse` now depends from the class, so the values must be input through it.
 
 
