@@ -109,6 +109,6 @@ class Yatzy:
             if threeofakind_value and pair_value:
                 return (threeofakind_value + pair_value)
             
-        return 0
+        return self.ZERO
             
 
