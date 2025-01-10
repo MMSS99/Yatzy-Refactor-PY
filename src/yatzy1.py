@@ -89,33 +89,24 @@ class Yatzy:
         values = sorted(set(self.dice))
         return sum(values) if values == LARGE_STRAIGHT else 0
 
-    @staticmethod
-    def fullHouse(d1, d2, d3, d4, d5):
-        tallies = []
-        _2 = False
-        i = 0
-        _2_at = 0
-        _3 = False
-        _3_at = 0
+    # Change arguments: only self.dice needed.
+    # Function checks each possible value: if it finds three of a kind it saves it (can only happen once so it remains in code), with an elif that is designed to separate those dice from possible pairs
+    
+    def fullHouse(self):
+        THREE_OF_A_KIND = 3
+        PAIR = 2
 
-        tallies = [0] * 6
-        tallies[d1 - 1] += 1
-        tallies[d2 - 1] += 1
-        tallies[d3 - 1] += 1
-        tallies[d4 - 1] += 1
-        tallies[d5 - 1] += 1
+        threeofakind_value = 0
+        pair_value = 0
+        for value in sorted(set(self.dice), reverse=True):
+            if self.dice.count(value) == THREE_OF_A_KIND:
+                threeofakind_value = int(value*THREE_OF_A_KIND)
+            elif pair_value == 0 and self.dice.count(value) == PAIR:
+                pair_value = int(value*PAIR)
+            
+            if threeofakind_value != 0 and pair_value != 0:
+                return (threeofakind_value + pair_value)
+            
+        return 0
+            
 
-        for i in range(6):
-            if (tallies[i] == 2):
-                _2 = True
-                _2_at = i + 1
-
-        for i in range(6):
-            if (tallies[i] == 3):
-                _3 = True
-                _3_at = i + 1
-
-        if (_2 and _3):
-            return _2_at * 2 + _3_at * 3
-        else:
-            return 0
