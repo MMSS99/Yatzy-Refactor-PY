@@ -57,25 +57,11 @@ class Yatzy:
         X_OF_A_KIND = 2
         return sum([value*X_OF_A_KIND for value in sorted(set(self.dice), reverse=True) if self.dice.count(value) >= X_OF_A_KIND][:1])
 
-    @staticmethod
-    def two_pair(d1, d2, d3, d4, d5):
-        counts = [0] * 6
-        counts[d1 - 1] += 1
-        counts[d2 - 1] += 1
-        counts[d3 - 1] += 1
-        counts[d4 - 1] += 1
-        counts[d5 - 1] += 1
-        n = 0
-        score = 0
-        for i in range(6):
-            if (counts[6 - i - 1] >= 2):
-                n = n + 1
-                score += (6 - i)
-
-        if (n == 2):
-            return score * 2
-        else:
-            return 0
+    # Simplified arguments: recieved all dices separatedly, only self is needed.
+    def two_pair(self):
+        X_OF_A_KIND = 2
+        candidate_values = [value*X_OF_A_KIND for value in sorted(set(self.dice), reverse=True) if self.dice.count(value) >= X_OF_A_KIND][:2]
+        return sum(candidate_values) if len(candidate_values) == 2 else 0
 
     # Simplified arguments: recieved all dices separatedly, only self is needed.
     # Morphed into the sum of a list comprehension that uses a sorted list made out of the set of self.dice to parse through the values of the dice in a max to min order, returning only the first possition of the list to take only the highest value
