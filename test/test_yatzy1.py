@@ -17,14 +17,14 @@ def test_yatzy_scores_50():
     assert Yatzy(6, 6, 6, 6, 3).yatzy() == 0
 
 # Changed test: Yatzy.chance arguments now depend from Yatzy's class instance
-def test_1s():
+def test_ones():
     assert Yatzy(1, 2, 3, 4, 5).ones() == 1
     assert Yatzy(1, 2, 1, 4, 5).ones() == 2
     assert Yatzy(6, 2, 2, 4, 5).ones() == 0
     assert Yatzy(1, 2, 1, 1, 1).ones() == 4
 
 # Changed test: Yatzy.chance arguments now depend from Yatzy's class instance
-def test_2s():
+def test_twos():
     assert Yatzy(1, 2, 3, 2, 6).twos() == 4
     assert Yatzy(2, 2, 2, 2, 2).twos() == 10
 
