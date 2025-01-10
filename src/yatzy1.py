@@ -91,7 +91,7 @@ class Yatzy:
 
     # Change arguments: only self.dice needed.
     # Function checks each possible value: if it finds three of a kind it saves it (can only happen once so it remains in code), with an elif that is designed to separate those dice from possible pairs
-    
+
     def fullHouse(self):
         THREE_OF_A_KIND = 3
         PAIR = 2
@@ -101,7 +101,7 @@ class Yatzy:
         for value in sorted(set(self.dice), reverse=True):
             if self.dice.count(value) == THREE_OF_A_KIND:
                 threeofakind_value = int(value*THREE_OF_A_KIND)
-            elif pair_value == 0 and self.dice.count(value) == PAIR:
+            elif self.dice.count(value) == PAIR:
                 pair_value = int(value*PAIR)
             
             if threeofakind_value != 0 and pair_value != 0:
