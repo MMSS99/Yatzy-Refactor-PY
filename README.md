@@ -47,6 +47,12 @@ Cronological order of refactoring commits:
 - Commit [*6b569e5*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/6b569e575574232649adfe2a75e1394894e2961b):
     - Given that now every `x_of_a_kind` function recieves their arguments through `class Yatzy`, the tests needed updating.
 
+- Commit [*325d13c*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/325d13c02cc940c1a112d15424efef5b5bb71b96):
+    - Now `two_pair` takes only self argument. It creates a list variable that holds the same list comprehension than `one_pair`, but it slices it at [:2] instead of [:1]. Then, the `return` statement checks the length of the list: if it's 2, it'll return the sum of the list; if it's 1 or 0 (meaning that `self.dice` only held 1 pair or 0), it'll return 0.  
+
+- Commit [*0a1de2c*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/0a1de2cff26df794e36997dd53a4f55d05b7f927): 
+    - Again, now `two_pair` is instance dependant so the arguments given by the test are now being sent to the class.
+
 
 
 
