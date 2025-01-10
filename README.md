@@ -74,8 +74,8 @@ Cronological order of refactoring commits:
 - Commit [*e300c4f*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/e300c4f5032d0820f95575d9d97559e441a78f17): 
     - `three_of_a_kind` and `four_of_a_kind` were out of order in the module. Their places were swapped for extra cohesion.
 
-- Commit [*af17f09*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/af17f09fa038f3b464801aab9f09bb6d8abac812) + [*af17f09*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/af17f09fa038f3b464801aab9f09bb6d8abac812):
-    - Both in `yatzy1` and it's tests, some of the functions had camel case names while the rest were snake_case. Those functions (namely `smallStraight`, `largeStraight` and `fullHouse`) have been renamed in snake_case.
+- Commit [*af17f09*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/af17f09fa038f3b464801aab9f09bb6d8abac812) + [*af17f09*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/af17f09fa038f3b464801aab9f09bb6d8abac812) + [*c512a1b*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/c512a1b825f65150531d6bdad215999bb9e96772):
+    - Both in `yatzy1` and it's tests, some of the functions had camel case names while the rest were snake_case. Those functions (namely `smallStraight`, `largeStraight` and `fullHouse`) have been renamed in snake_case. Some testing names contained numbers, that were changed by their lettered representation.
 
 - Commit [*a01a9de*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/a01a9deb39f8ff63c3b312f917e5e10d3df4872a):
     - In some of the testing functions (`test_chance_scores_sum_of_all_dice` and `test_yatzy_scores_50`) there were assertions that used previously declared variables. Now, they use only the raw data, as I found the variable declaration obscured the assertion. 
