@@ -41,6 +41,12 @@ Cronological order of refactoring commits:
 - Commit [*dc667c5*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/dc667c50014ce9c1a51538d7288103fcc318e468)
     - Another test change to a function that is now class instance based, this time to the maximum score test.
 
+- Commit [*69e17a4*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/69e17a4435ce0d8558d6c4e0e27b45d7084ca4fa):
+    - The commit changes all `x_of_a_kind` functions. They recieved the self argument (despite being static funtions) and each dice separatedly: now they only recieve self and are tied to the instance of a class. Additionaly, their functionalities have been simplified and standarized to the sum of a list comprehension (which is sliced after the first object inside of it) that takes an inversely ordered set with the values inside of `self.dice` and checks how many dice have given that value in the current roll. If the die are equal or more to the `X_OF_A_KIND` constant value, they're considered for the sum.
+
+- Commit [*6b569e5*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/6b569e575574232649adfe2a75e1394894e2961b):
+    - Given that now every `x_of_a_kind` function recieves their arguments through `class Yatzy`, the tests needed updating.
+
 
 
 
