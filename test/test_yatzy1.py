@@ -7,16 +7,12 @@ from src.yatzy1 import Yatzy
 
 # Changed test: Yatzy.chance arguments now depend from Yatzy's class instance
 def test_chance_scores_sum_of_all_dice():
-    expected = 15
-    actual = Yatzy(2, 3, 4, 5, 1).chance()
-    assert expected == actual
+    assert Yatzy(2, 3, 4, 5, 1).chance() == 15
     assert 16 == Yatzy(3, 3, 4, 5, 1).chance()
 
 
 def test_yatzy_scores_50():
-    expected = 50
-    actual = Yatzy(4, 4, 4, 4, 4).yatzy()
-    assert expected == actual
+    assert Yatzy(4, 4, 4, 4, 4).yatzy() == 50
     assert 50 == Yatzy(6, 6, 6, 6, 6).yatzy()
     assert 0 == Yatzy(6, 6, 6, 6, 3).yatzy()
 
