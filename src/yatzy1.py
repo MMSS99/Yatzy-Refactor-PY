@@ -2,18 +2,14 @@ class Yatzy:
 
     # Moved constructor method to the top of the class
     # Changed arguments d1, d2... to die1, die2
+    # Re-defined self.dice from a list holding 5 zeroes to a list holding the values of the arguments from the start (which, if not give, shall remain 0)
     def __init__(self, die1=0, die2=0, die3=0, die4=0, die5=0):
         self.dice = [die1, die2, die3, die4, die5]
 
-    @staticmethod
-    def chance(d1, d2, d3, d4, d5):
-        total = 0
-        total += d1
-        total += d2
-        total += d3
-        total += d4
-        total += d5
-        return total
+    # Eliminated @staticmethod as it will now depend of the class instance
+    # Simplified into returning the sum of all Yatzy instance dice.
+    def chance(self):
+        return sum(self.dice)
 
     @staticmethod
     def yatzy(dice):
