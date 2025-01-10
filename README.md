@@ -83,4 +83,8 @@ Cronological order of refactoring commits:
 - Commit [*297b9b3*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/297b9b36ddd1998ae024c2f5aba49070b24f857d):
     - In all testing funcions, the assertions were written following `assert VALUE == FUNCTION`. I have changed it to `assert FUNCTION == VALUE` as it cleans up the document, improving overall legibility and structure. 
 
+## Time spent 
+<sup> In 15-minute tokens</sup>
+- **Yatzy1** = 18 (3h 32m)
 
+- **README.md** = 6 (1h 23m)
