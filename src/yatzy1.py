@@ -77,14 +77,14 @@ class Yatzy:
 
     # Change arguments: only self.dice needed.
     # Values saves the ordered values of the die, which are then comparated to the small straight combination during the return statement
-    def smallStraight(self):
+    def small_straight(self):
         SMALL_STRAIGHT = [1, 2, 3, 4, 5]
         values = sorted(set(self.dice))
         return sum(values) if values == SMALL_STRAIGHT else 0
 
     # Change arguments: only self.dice needed.
     # Values saves the ordered values of the die, which are then comparated to the large straight combination during the return statement
-    def largeStraight(self):
+    def large_straight(self):
         LARGE_STRAIGHT = [2, 3, 4, 5, 6]
         values = sorted(set(self.dice))
         return sum(values) if values == LARGE_STRAIGHT else 0
@@ -92,7 +92,7 @@ class Yatzy:
     # Change arguments: only self.dice needed.
     # Function checks each possible value: if it finds three of a kind it saves it (can only happen once so it remains in code), with an elif that is designed to separate those dice from possible pairs
 
-    def fullHouse(self):
+    def full_house(self):
         THREE_OF_A_KIND = 3
         PAIR = 2
 
