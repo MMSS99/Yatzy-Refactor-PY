@@ -1,5 +1,5 @@
 class Yatzy:
-
+    
     # Moved constructor method to the top of the class
     # Changed arguments d1, d2... to die1, die2
     # Re-defined self.dice from a list holding 5 zeroes to a list holding the values of the arguments from the start (which, if not give, shall remain 0)
@@ -14,7 +14,8 @@ class Yatzy:
     # Eliminated @staticmethod as it will now depend of the class instance
     # Simplified into returning 50 if all items in a list are the same (data obtained from the length of a set); if the set length is other than 1, return 0
     def yatzy(self):
-        return 50 if len(set(self.dice)) == 1 else 0
+        YATZY = 50
+        return YATZY if len(set(self.dice)) == 1 else 0
 
 
     # Eliminated @staticmethod as it will now depend of the class instance
