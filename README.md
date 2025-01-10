@@ -12,4 +12,7 @@ Refactoring excercise based on [Emily Banche](https://github.com/emilybache)'s [
 
 
 ## Refactoring commits logbook
-Cronological order of refactoring commits (each one also modifying the README.md): 
+Cronological order of refactoring commits: 
+
+- Commit [*befe38a*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/befe38a43f2a4f625bf8e1dd86005c81fb401e40):
+- - Moved `class Yatzy` `def __init__` to the top of the class. 

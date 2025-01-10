@@ -1,12 +1,9 @@
 class Yatzy:
 
-    def __init__(self, d1=0, d2=0, d3=0, d4=0, _5=0):
-        self.dice = [0] * 5
-        self.dice[0] = d1
-        self.dice[1] = d2
-        self.dice[2] = d3
-        self.dice[3] = d4
-        self.dice[4] = _5
+    # Moved constructor method to the top of the class
+    # Changed arguments d1, d2... to die1, die2
+    def __init__(self, die1=0, die2=0, die3=0, die4=0, die5=0):
+        self.dice = [die1, die2, die3, die4, die5]
 
     @staticmethod
     def chance(d1, d2, d3, d4, d5):
