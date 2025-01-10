@@ -53,6 +53,13 @@ Cronological order of refactoring commits:
 - Commit [*0a1de2c*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/0a1de2cff26df794e36997dd53a4f55d05b7f927): 
     - Again, now `two_pair` is instance dependant so the arguments given by the test are now being sent to the class.
 
+- Commit [*bdd4477*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/bdd4477c8a9e4f47baba533f86ff7aaf73433144) + [*2b35cde*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/2b35cde265be206af22dc4622ddae9d86524f519):
+    - The arguments given to smallStraight and bigStraight were unnecesary: the funcitons were made instance dependand and they now only take `self` as argument.
+    - Simplified the functionality into a variable, a constant and a return if/else statement. The constant `LARGE/SMALL_STRAIGHT` holds the values that confirm that the dice rolled will give the player points, while `values` holds an ordered version of `self.dice`. This two values are compared in the return statement, awarding the player the sum of `values`(15/20) if it's equal to X_STRAIGHT. If not, the player gets nothing (0).
+ 
+ - Commit [*3aa4084*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/3aa40840b795d8893d7939be35b183d11be1e222):
+    - Yet again, `smallStraight` and `largeStraight` now depend of the class instance, therefore the test values must be input directly into the class.
+
 
 
 
