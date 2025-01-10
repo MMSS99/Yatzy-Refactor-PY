@@ -14,6 +14,7 @@ Refactoring excercise based on [Emily Banche](https://github.com/emilybache)'s [
 ## Refactoring commits logbook
 Cronological order of refactoring commits: 
 
+### Yatzy1
 - Commit [*befe38a*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/befe38a43f2a4f625bf8e1dd86005c81fb401e40):
     - Moved `class Yatzy` `def __init__` to the top of the class. 
 
@@ -69,5 +70,17 @@ Cronological order of refactoring commits:
 
 - Commit [*0fd1fe8*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/0fd1fe8a07767b76743eb98440b6d64cec822887):
     - Last changes to the test contents: `fullHouse` now depends from the class, so the values must be input through it.
+
+- Commit [*e300c4f*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/e300c4f5032d0820f95575d9d97559e441a78f17): 
+    - `three_of_a_kind` and `four_of_a_kind` were out of order in the module. Their places were swapped for extra cohesion.
+
+- Commit [*af17f09*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/af17f09fa038f3b464801aab9f09bb6d8abac812) + [*af17f09*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/af17f09fa038f3b464801aab9f09bb6d8abac812):
+    - Both in `yatzy1` and it's tests, some of the functions had camel case names while the rest were snake_case. Those functions (namely `smallStraight`, `largeStraight` and `fullHouse`) have been renamed in snake_case.
+
+- Commit [*a01a9de*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/a01a9deb39f8ff63c3b312f917e5e10d3df4872a):
+    - In some of the testing functions (`test_chance_scores_sum_of_all_dice` and `test_yatzy_scores_50`) there were assertions that used previously declared variables. Now, they use only the raw data, as I found the variable declaration obscured the assertion. 
+
+- Commit [*297b9b3*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/297b9b36ddd1998ae024c2f5aba49070b24f857d):
+    - In all testing funcions, the assertions were written following `assert VALUE == FUNCTION`. I have changed it to `assert FUNCTION == VALUE` as it cleans up the document, improving overall legibility and structure. 
 
 
