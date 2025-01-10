@@ -62,17 +62,17 @@ class Yatzy:
         X_OF_A_KIND = 2
         candidate_values = [value*X_OF_A_KIND for value in sorted(set(self.dice), reverse=True) if self.dice.count(value) >= X_OF_A_KIND][:2]
         return sum(candidate_values) if len(candidate_values) == 2 else 0
+    
+    # Simplified arguments: recieved all dices separatedly, only self is needed.
+    # Morphed into the sum of a list comprehension that uses a sorted list made out of the set of self.dice to parse through the values of the dice in a max to min order, returning only the first possition of the list to take only the highest value
+    def three_of_a_kind(self):
+        X_OF_A_KIND = 3
+        return sum([value*X_OF_A_KIND for value in sorted(set(self.dice), reverse=True) if self.dice.count(value) >= X_OF_A_KIND][:1])
 
     # Simplified arguments: recieved all dices separatedly, only self is needed.
     # Morphed into the sum of a list comprehension that uses a sorted list made out of the set of self.dice to parse through the values of the dice in a max to min order, returning only the first possition of the list to take only the highest value
     def four_of_a_kind(self):
         X_OF_A_KIND = 4
-        return sum([value*X_OF_A_KIND for value in sorted(set(self.dice), reverse=True) if self.dice.count(value) >= X_OF_A_KIND][:1])
-
-    # Simplified arguments: recieved all dices separatedly, only self is needed.
-    # Morphed into the sum of a list comprehension that uses a sorted list made out of the set of self.dice to parse through the values of the dice in a max to min order, returning only the first possition of the list to take only the highest value
-    def three_of_a_kind(self):
-        X_OF_A_KIND = 3
         return sum([value*X_OF_A_KIND for value in sorted(set(self.dice), reverse=True) if self.dice.count(value) >= X_OF_A_KIND][:1])
 
     # Change arguments: only self.dice needed.
