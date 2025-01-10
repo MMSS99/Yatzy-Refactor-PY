@@ -75,37 +75,19 @@ class Yatzy:
         X_OF_A_KIND = 3
         return sum([value*X_OF_A_KIND for value in sorted(set(self.dice), reverse=True) if self.dice.count(value) >= X_OF_A_KIND][:1])
 
-    @staticmethod
-    def smallStraight(d1, d2, d3, d4, d5):
-        tallies = [0] * 6
-        tallies[d1 - 1] += 1
-        tallies[d2 - 1] += 1
-        tallies[d3 - 1] += 1
-        tallies[d4 - 1] += 1
-        tallies[d5 - 1] += 1
-        if (tallies[0] == 1 and
-                tallies[1] == 1 and
-                tallies[2] == 1 and
-                tallies[3] == 1 and
-                tallies[4] == 1):
-            return 15
-        return 0
+    # Change arguments: only self.dice needed.
+    # Values saves the ordered values of the die, which are then comparated to the small straight combination during the return statement
+    def smallStraight(self):
+        values = sorted(set(self.dice))
+        combination = [1, 2, 3, 4, 5]
+        return sum(values) if values == combination else 0
 
-    @staticmethod
-    def largeStraight(d1, d2, d3, d4, d5):
-        tallies = [0] * 6
-        tallies[d1 - 1] += 1
-        tallies[d2 - 1] += 1
-        tallies[d3 - 1] += 1
-        tallies[d4 - 1] += 1
-        tallies[d5 - 1] += 1
-        if (tallies[1] == 1 and
-                tallies[2] == 1 and
-                tallies[3] == 1 and
-                tallies[4] == 1
-                and tallies[5] == 1):
-            return 20
-        return 0
+    # Change arguments: only self.dice needed.
+    # Values saves the ordered values of the die, which are then comparated to the large straight combination during the return statement
+    def largeStraight(self):
+        values = sorted(set(self.dice))
+        combination = [2, 3, 4, 5, 6]
+        return sum(values) if values == combination else 0
 
     @staticmethod
     def fullHouse(d1, d2, d3, d4, d5):
