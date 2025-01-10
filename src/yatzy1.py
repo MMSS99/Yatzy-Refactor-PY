@@ -1,219 +1,112 @@
 class Yatzy:
 
-    @staticmethod
-    def chance(d1, d2, d3, d4, d5):
-        total = 0
-        total += d1
-        total += d2
-        total += d3
-        total += d4
-        total += d5
-        return total
+    # Moved constructor method to the top of the class
+    # Changed arguments d1, d2... to die1, die2
+    # Re-defined self.dice from a list holding 5 zeroes to a list holding the values of the arguments from the start (which, if not give, shall remain 0)
+    def __init__(self, die1=0, die2=0, die3=0, die4=0, die5=0):
+        self.dice = [die1, die2, die3, die4, die5]
 
-    @staticmethod
-    def yatzy(dice):
-        counts = [0] * (len(dice) + 1)
-        for die in dice:
-            counts[die - 1] += 1
-        for i in range(len(counts)):
-            if counts[i] == 5:
-                return 50
-        return 0
+    # Eliminated @staticmethod as it will now depend of the class instance
+    # Simplified into returning the sum of all Yatzy instance dice.
+    def chance(self):
+        return sum(self.dice)
 
-    @staticmethod
-    def ones(d1, d2, d3, d4, d5):
-        sum = 0
-        if (d1 == 1):
-            sum += 1
-        if (d2 == 1):
-            sum += 1
-        if (d3 == 1):
-            sum += 1
-        if (d4 == 1):
-            sum += 1
-        if (d5 == 1):
-            sum += 1
+    # Eliminated @staticmethod as it will now depend of the class instance
+    # Simplified into returning 50 if all items in a list are the same (data obtained from the length of a set); if the set length is other than 1, return 0
+    def yatzy(self):
+        return 50 if len(set(self.dice)) == 1 else 0
 
-        return sum
 
-    @staticmethod
-    def twos(d1, d2, d3, d4, d5):
-        sum = 0
-        if (d1 == 2):
-            sum += 2
-        if (d2 == 2):
-            sum += 2
-        if (d3 == 2):
-            sum += 2
-        if (d4 == 2):
-            sum += 2
-        if (d5 == 2):
-            sum += 2
-        return sum
+    # Eliminated @staticmethod as it will now depend of the class instance
+    # Simplified into returning the sum of a list compresension of self.dice that only stores the value defined in the filter constant
+    def ones(self):
+        FILTER = 1
+        return sum([die for die in self.dice if die == FILTER])
 
-    @staticmethod
-    def threes(d1, d2, d3, d4, d5):
-        s = 0
-        if (d1 == 3):
-            s += 3
-        if (d2 == 3):
-            s += 3
-        if (d3 == 3):
-            s += 3
-        if (d4 == 3):
-            s += 3
-        if (d5 == 3):
-            s += 3
-        return s
+    # Eliminated @staticmethod as it will now depend of the class instance
+    # Simplified into returning the sum of a list compresension of self.dice that only stores the value defined in the filter constant
+    def twos(self):
+        FILTER = 2
+        return sum([die for die in self.dice if die == FILTER])
 
-    def __init__(self, d1=0, d2=0, d3=0, d4=0, _5=0):
-        self.dice = [0] * 5
-        self.dice[0] = d1
-        self.dice[1] = d2
-        self.dice[2] = d3
-        self.dice[3] = d4
-        self.dice[4] = _5
+    # Eliminated @staticmethod as it will now depend of the class instance
+    # Simplified into returning the sum of a list compresension of self.dice that only stores the value defined in the filter constant
+    def threes(self):
+        FILTER = 3
+        return sum([die for die in self.dice if die == FILTER])
 
+    # Simplified into returning the sum of a list compresension of self.dice that only stores the value defined in the filter constant
     def fours(self):
-        sum = 0
-        for at in range(5):
-            if (self.dice[at] == 4):
-                sum += 4
-        return sum
+        FILTER = 4
+        return sum([die for die in self.dice if die == FILTER])
 
+    # Simplified into returning the sum of a list compresension of self.dice that only stores the value defined in the filter constant
     def fives(self):
-        s = 0
-        i = 0
-        for i in range(len(self.dice)):
-            if (self.dice[i] == 5):
-                s = s + 5
-        return s
+        FILTER = 5
+        return sum([die for die in self.dice if die == FILTER])
 
+    # Simplified into returning the sum of a list compresension of self.dice that only stores the value defined in the filter constant
     def sixes(self):
-        sum = 0
-        for at in range(len(self.dice)):
-            if (self.dice[at] == 6):
-                sum = sum + 6
-        return sum
+        FILTER = 6
+        return sum([die for die in self.dice if die == FILTER])
 
-    def score_pair(self, d1, d2, d3, d4, d5):
-        counts = [0] * 6
-        counts[d1 - 1] += 1
-        counts[d2 - 1] += 1
-        counts[d3 - 1] += 1
-        counts[d4 - 1] += 1
-        counts[d5 - 1] += 1
-        at = 0
-        for at in range(6):
-            if (counts[6 - at - 1] == 2):
-                return (6 - at) * 2
+    # Barely legible, but takes the highest pair and sums it.
+    # Simplified arguments: recieved all dices separatedly, only self is needed.
+    # Morphed into the sum of a list comprehension that uses a sorted list made out of the set of self.dice to parse through the values of the dice in a max to min order, returning only the first possition of the list to take only the highest value
+    def score_pair(self):
+        X_OF_A_KIND = 2
+        return sum([value*X_OF_A_KIND for value in sorted(set(self.dice), reverse=True) if self.dice.count(value) >= X_OF_A_KIND][:1])
+
+    # Simplified arguments: recieved all dices separatedly, only self is needed.
+    def two_pair(self):
+        X_OF_A_KIND = 2
+        candidate_values = [value*X_OF_A_KIND for value in sorted(set(self.dice), reverse=True) if self.dice.count(value) >= X_OF_A_KIND][:2]
+        return sum(candidate_values) if len(candidate_values) == 2 else 0
+    
+    # Simplified arguments: recieved all dices separatedly, only self is needed.
+    # Morphed into the sum of a list comprehension that uses a sorted list made out of the set of self.dice to parse through the values of the dice in a max to min order, returning only the first possition of the list to take only the highest value
+    def three_of_a_kind(self):
+        X_OF_A_KIND = 3
+        return sum([value*X_OF_A_KIND for value in sorted(set(self.dice), reverse=True) if self.dice.count(value) >= X_OF_A_KIND][:1])
+
+    # Simplified arguments: recieved all dices separatedly, only self is needed.
+    # Morphed into the sum of a list comprehension that uses a sorted list made out of the set of self.dice to parse through the values of the dice in a max to min order, returning only the first possition of the list to take only the highest value
+    def four_of_a_kind(self):
+        X_OF_A_KIND = 4
+        return sum([value*X_OF_A_KIND for value in sorted(set(self.dice), reverse=True) if self.dice.count(value) >= X_OF_A_KIND][:1])
+
+    # Change arguments: only self.dice needed.
+    # Values saves the ordered values of the die, which are then comparated to the small straight combination during the return statement
+    def small_straight(self):
+        SMALL_STRAIGHT = [1, 2, 3, 4, 5]
+        values = sorted(set(self.dice))
+        return sum(values) if values == SMALL_STRAIGHT else 0
+
+    # Change arguments: only self.dice needed.
+    # Values saves the ordered values of the die, which are then comparated to the large straight combination during the return statement
+    def large_straight(self):
+        LARGE_STRAIGHT = [2, 3, 4, 5, 6]
+        values = sorted(set(self.dice))
+        return sum(values) if values == LARGE_STRAIGHT else 0
+
+    # Change arguments: only self.dice needed.
+    # Function checks each possible value: if it finds three of a kind it saves it (can only happen once so it remains in code), with an elif that is designed to separate those dice from possible pairs
+
+    def full_house(self):
+        THREE_OF_A_KIND = 3
+        PAIR = 2
+
+        threeofakind_value = 0
+        pair_value = 0
+        for value in sorted(set(self.dice), reverse=True):
+            if self.dice.count(value) == THREE_OF_A_KIND:
+                threeofakind_value = int(value*THREE_OF_A_KIND)
+            elif self.dice.count(value) == PAIR:
+                pair_value = int(value*PAIR)
+            
+            if threeofakind_value != 0 and pair_value != 0:
+                return (threeofakind_value + pair_value)
+            
         return 0
+            
 
-    @staticmethod
-    def two_pair(d1, d2, d3, d4, d5):
-        counts = [0] * 6
-        counts[d1 - 1] += 1
-        counts[d2 - 1] += 1
-        counts[d3 - 1] += 1
-        counts[d4 - 1] += 1
-        counts[d5 - 1] += 1
-        n = 0
-        score = 0
-        for i in range(6):
-            if (counts[6 - i - 1] >= 2):
-                n = n + 1
-                score += (6 - i)
-
-        if (n == 2):
-            return score * 2
-        else:
-            return 0
-
-    @staticmethod
-    def four_of_a_kind(_1, _2, d3, d4, d5):
-        tallies = [0] * 6
-        tallies[_1 - 1] += 1
-        tallies[_2 - 1] += 1
-        tallies[d3 - 1] += 1
-        tallies[d4 - 1] += 1
-        tallies[d5 - 1] += 1
-        for i in range(6):
-            if (tallies[i] >= 4):
-                return (i + 1) * 4
-        return 0
-
-    @staticmethod
-    def three_of_a_kind(d1, d2, d3, d4, d5):
-        t = [0] * 6
-        t[d1 - 1] += 1
-        t[d2 - 1] += 1
-        t[d3 - 1] += 1
-        t[d4 - 1] += 1
-        t[d5 - 1] += 1
-        for i in range(6):
-            if (t[i] >= 3):
-                return (i + 1) * 3
-        return 0
-
-    @staticmethod
-    def smallStraight(d1, d2, d3, d4, d5):
-        tallies = [0] * 6
-        tallies[d1 - 1] += 1
-        tallies[d2 - 1] += 1
-        tallies[d3 - 1] += 1
-        tallies[d4 - 1] += 1
-        tallies[d5 - 1] += 1
-        if (tallies[0] == 1 and
-                tallies[1] == 1 and
-                tallies[2] == 1 and
-                tallies[3] == 1 and
-                tallies[4] == 1):
-            return 15
-        return 0
-
-    @staticmethod
-    def largeStraight(d1, d2, d3, d4, d5):
-        tallies = [0] * 6
-        tallies[d1 - 1] += 1
-        tallies[d2 - 1] += 1
-        tallies[d3 - 1] += 1
-        tallies[d4 - 1] += 1
-        tallies[d5 - 1] += 1
-        if (tallies[1] == 1 and
-                tallies[2] == 1 and
-                tallies[3] == 1 and
-                tallies[4] == 1
-                and tallies[5] == 1):
-            return 20
-        return 0
-
-    @staticmethod
-    def fullHouse(d1, d2, d3, d4, d5):
-        tallies = []
-        _2 = False
-        i = 0
-        _2_at = 0
-        _3 = False
-        _3_at = 0
-
-        tallies = [0] * 6
-        tallies[d1 - 1] += 1
-        tallies[d2 - 1] += 1
-        tallies[d3 - 1] += 1
-        tallies[d4 - 1] += 1
-        tallies[d5 - 1] += 1
-
-        for i in range(6):
-            if (tallies[i] == 2):
-                _2 = True
-                _2_at = i + 1
-
-        for i in range(6):
-            if (tallies[i] == 3):
-                _3 = True
-                _3_at = i + 1
-
-        if (_2 and _3):
-            return _2_at * 2 + _3_at * 3
-        else:
-            return 0
