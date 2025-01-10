@@ -78,16 +78,16 @@ class Yatzy:
     # Change arguments: only self.dice needed.
     # Values saves the ordered values of the die, which are then comparated to the small straight combination during the return statement
     def smallStraight(self):
+        SMALL_STRAIGHT = [1, 2, 3, 4, 5]
         values = sorted(set(self.dice))
-        combination = [1, 2, 3, 4, 5]
-        return sum(values) if values == combination else 0
+        return sum(values) if values == SMALL_STRAIGHT else 0
 
     # Change arguments: only self.dice needed.
     # Values saves the ordered values of the die, which are then comparated to the large straight combination during the return statement
     def largeStraight(self):
+        LARGE_STRAIGHT = [2, 3, 4, 5, 6]
         values = sorted(set(self.dice))
-        combination = [2, 3, 4, 5, 6]
-        return sum(values) if values == combination else 0
+        return sum(values) if values == LARGE_STRAIGHT else 0
 
     @staticmethod
     def fullHouse(d1, d2, d3, d4, d5):
