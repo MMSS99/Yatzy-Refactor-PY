@@ -21,73 +21,38 @@ class Yatzy:
                 return 50
         return 0
 
-    @staticmethod
-    def ones(d1, d2, d3, d4, d5):
-        sum = 0
-        if (d1 == 1):
-            sum += 1
-        if (d2 == 1):
-            sum += 1
-        if (d3 == 1):
-            sum += 1
-        if (d4 == 1):
-            sum += 1
-        if (d5 == 1):
-            sum += 1
+    # Eliminated @staticmethod as it will now depend of the class instance
+    # Simplified into returning the sum of a list compresension of self.dice that only stores the value defined in the filter constant
+    def ones(self):
+        FILTER = 1
+        return sum([die for die in self.dice if die == FILTER])
 
-        return sum
+    # Eliminated @staticmethod as it will now depend of the class instance
+    # Simplified into returning the sum of a list compresension of self.dice that only stores the value defined in the filter constant
+    def twos(self):
+        FILTER = 2
+        return sum([die for die in self.dice if die == FILTER])
 
-    @staticmethod
-    def twos(d1, d2, d3, d4, d5):
-        sum = 0
-        if (d1 == 2):
-            sum += 2
-        if (d2 == 2):
-            sum += 2
-        if (d3 == 2):
-            sum += 2
-        if (d4 == 2):
-            sum += 2
-        if (d5 == 2):
-            sum += 2
-        return sum
+    # Eliminated @staticmethod as it will now depend of the class instance
+    # Simplified into returning the sum of a list compresension of self.dice that only stores the value defined in the filter constant
+    def threes(self):
+        FILTER = 3
+        return sum([die for die in self.dice if die == FILTER])
 
-    @staticmethod
-    def threes(d1, d2, d3, d4, d5):
-        s = 0
-        if (d1 == 3):
-            s += 3
-        if (d2 == 3):
-            s += 3
-        if (d3 == 3):
-            s += 3
-        if (d4 == 3):
-            s += 3
-        if (d5 == 3):
-            s += 3
-        return s
-
+    # Simplified into returning the sum of a list compresension of self.dice that only stores the value defined in the filter constant
     def fours(self):
-        sum = 0
-        for at in range(5):
-            if (self.dice[at] == 4):
-                sum += 4
-        return sum
+        FILTER = 4
+        return sum([die for die in self.dice if die == FILTER])
 
+    # Simplified into returning the sum of a list compresension of self.dice that only stores the value defined in the filter constant
     def fives(self):
-        s = 0
-        i = 0
-        for i in range(len(self.dice)):
-            if (self.dice[i] == 5):
-                s = s + 5
-        return s
+        FILTER = 5
+        return sum([die for die in self.dice if die == FILTER])
 
+    # Simplified into returning the sum of a list compresension of self.dice that only stores the value defined in the filter constant
     def sixes(self):
-        sum = 0
-        for at in range(len(self.dice)):
-            if (self.dice[at] == 6):
-                sum = sum + 6
-        return sum
+        FILTER = 6
+        return sum([die for die in self.dice if die == FILTER])
 
     def score_pair(self, d1, d2, d3, d4, d5):
         counts = [0] * 6
