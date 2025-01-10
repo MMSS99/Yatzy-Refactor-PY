@@ -15,10 +15,10 @@ def test_chance_scores_sum_of_all_dice():
 
 def test_yatzy_scores_50():
     expected = 50
-    actual = Yatzy.yatzy([4, 4, 4, 4, 4])
+    actual = Yatzy(4, 4, 4, 4, 4).yatzy()
     assert expected == actual
-    assert 50 == Yatzy.yatzy([6, 6, 6, 6, 6])
-    assert 0 == Yatzy.yatzy([6, 6, 6, 6, 3])
+    assert 50 == Yatzy(6, 6, 6, 6, 6).yatzy()
+    assert 0 == Yatzy(6, 6, 6, 6, 3).yatzy()
 
 # Changed test: Yatzy.chance arguments now depend from Yatzy's class instance
 def test_1s():
