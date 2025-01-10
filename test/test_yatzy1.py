@@ -10,8 +10,8 @@ def test_chance_scores_sum_of_all_dice():
     assert Yatzy(2, 3, 4, 5, 1).chance() == 15
     assert Yatzy(3, 3, 4, 5, 1).chance() == 16
 
-
-def test_yatzy_scores_50():
+# Removed 50 from name
+def test_yatzy_scores():
     assert Yatzy(4, 4, 4, 4, 4).yatzy() == 50
     assert Yatzy(6, 6, 6, 6, 6).yatzy() == 50
     assert Yatzy(6, 6, 6, 6, 3).yatzy() == 0
@@ -58,7 +58,7 @@ def test_one_pair():
     assert Yatzy(5, 3, 6, 6, 5).score_pair() == 12
 
 
-def test_two_Pair():
+def test_two_pair():
     assert Yatzy(3, 3, 5, 4, 5).two_pair() == 16
     assert Yatzy(3, 3, 6, 6, 6).two_pair() == 18
     assert Yatzy(3, 3, 6, 5, 4).two_pair() == 0
