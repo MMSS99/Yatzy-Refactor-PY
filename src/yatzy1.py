@@ -11,15 +11,11 @@ class Yatzy:
     def chance(self):
         return sum(self.dice)
 
-    @staticmethod
-    def yatzy(dice):
-        counts = [0] * (len(dice) + 1)
-        for die in dice:
-            counts[die - 1] += 1
-        for i in range(len(counts)):
-            if counts[i] == 5:
-                return 50
-        return 0
+    # Eliminated @staticmethod as it will now depend of the class instance
+    # Simplified into returning 50 if all items in a list are the same (data obtained from the length of a set); if the set length is other than 1, return 0
+    def yatzy(self):
+        return 50 if len(set(self.dice)) == 1 else 0
+
 
     # Eliminated @staticmethod as it will now depend of the class instance
     # Simplified into returning the sum of a list compresension of self.dice that only stores the value defined in the filter constant
