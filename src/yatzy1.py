@@ -81,14 +81,14 @@ class Yatzy:
     # Values saves the ordered values of the die, which are then comparated to the small straight combination during the return statement
     def small_straight(self):
         SMALL_STRAIGHT = [1, 2, 3, 4, 5]
-        values = sorted(set(self.dice))
+        values = set(self.dice)
         return sum(values) if values == SMALL_STRAIGHT else self.ZERO
 
     # Change arguments: only self.dice needed.
     # Values saves the ordered values of the die, which are then comparated to the large straight combination during the return statement
     def large_straight(self):
-        LARGE_STRAIGHT = [2, 3, 4, 5, 6]
-        values = sorted(set(self.dice))
+        LARGE_STRAIGHT = {2, 3, 4, 5, 6}
+        values = set(self.dice)
         return sum(values) if values == LARGE_STRAIGHT else self.ZERO
 
     # Change arguments: only self.dice needed.
