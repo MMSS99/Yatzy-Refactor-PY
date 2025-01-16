@@ -100,15 +100,17 @@ class Yatzy:
 
         threeofakind_value = 0
         pair_value = 0
-        for value in sorted(set(self.dice), reverse=True):
-            if self.dice.count(value) == THREE_OF_A_KIND:
-                threeofakind_value = value*THREE_OF_A_KIND
-            elif self.dice.count(value) == PAIR:
-                pair_value = value*PAIR
-            
+
+        for die in self.dice:
+            if self.dice.count(die) == PAIR:
+                pair_value = self.score_pair()
+            elif self.dice.count(die) == THREE_OF_A_KIND:
+                threeofakind_value = self.three_of_a_kind()
+
             if threeofakind_value and pair_value:
-                return (threeofakind_value + pair_value)
-            
+                return threeofakind_value + pair_value
+        
         return self.ZERO
+      
             
 

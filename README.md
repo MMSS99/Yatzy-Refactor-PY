@@ -9,7 +9,8 @@ Refactoring excercise based on [Emily Banche](https://github.com/emilybache)'s [
 > \
 > &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<sub>*Jonathan Rasmusson*, in [*The Agile Samurai: How Agile Masters Deliver Great Software*](https://www.amazon.com/Agile-Samurai-Software-Pragmatic-Programmers/dp/1934356581)</sub>
 
-
+- [Go to Yatzy1's logbook.](#yatzy1)
+- [Go to Yatzy2's (enum class) logbook.](#yatzy2)
 
 ## Refactoring commits logbook
 Cronological order of refactoring commits: 
@@ -94,6 +95,9 @@ Cronological order of refactoring commits:
 
 - Commit [*cb2a6b8*](https://github.com/MMSS99/Yatzy-Refactor-py/commit/cb2a6b89645b24258cb860514a875d6c9c81d828):
     - `Yatzy.full_house` had inside of it's return if clausule an expression that checked it's variables for their value being 0. This can easily be changed, as a variable with value 0 is read as `None` by if clausules.
+
+### Yatzy2
+
 
 ## Time spent 
 <sup> In 15-minute tokens</sup>
